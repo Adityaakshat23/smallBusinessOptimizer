@@ -2,8 +2,15 @@ import React from 'react';
 import '../CSS/SignIn.css';
 import BsSignIn from './BsSignIn';
 import { useState } from 'react';
+
 function SignIn() {
   const [currentPage, setCurrentPage] = useState('user');
+  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const signIn = e=>{
+    e.preventDefault()
+  }
   
   return (
     <div>
@@ -17,6 +24,8 @@ function SignIn() {
         <input 
           type="text"
           placeholder='john.doe'
+          value = {user} onChange =
+          {e => setUser(e.target.value)}
           className='input-field'
         />
       </div>
@@ -26,6 +35,8 @@ function SignIn() {
         <input 
           type="email"
           placeholder='john.doe@example.com'
+          value = {email}  onChange =
+          {e => setEmail(e.target.value)}
           className='input-field'
         />
       </div>
@@ -35,12 +46,15 @@ function SignIn() {
         <input 
           type="password"
           placeholder='........'
+          value = {password} onChange =
+          {e => setPassword(e.target.value)}
           className='input-field'
           />
       </div>
 
       <div className="signIn-action">
-        <button className="signIn-btn">Sign In</button>
+        <button type='submit' onClick ={signIn}
+        className="signIn-btn">Sign In</button>
       </div>
 
       <div className="business-signIn">
