@@ -5,6 +5,7 @@ import SearchResults from './SearchResults';
 import Categories from "./Categories"
 import SmallBizProfile from './BsProfile'
 import OrderCheckoutPage from './Cart'
+import SignIn from './SignIn';
 
 const PRODUCTS = [
   { id: 1, title: 'Handmade Lavender Soap', store: 'EcoCraft', price: '8.50', color: '#5c4033' },
@@ -57,7 +58,7 @@ const Home = () => {
           <button className='role-btn' onClick={()=>setCurrentPage('Cart')} 
           aria-label="cart">🛒
           </button>
-          <button className='Sign-in-btn'>
+          <button className='Sign-in-btn' onClick={()=>setCurrentPage('SignIn')}>
           <h4>Sign In</h4>
           </button>
           <button className='role-btn' onClick={()=>setCurrentPage('profile')}>
@@ -156,6 +157,9 @@ const Home = () => {
     )}
     {currentPage === "profile" && (
         <SmallBizProfile/>
+    )}
+    {currentPage==="SignIn" && (
+        <SignIn/>
     )}
     
   </div>
