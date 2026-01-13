@@ -70,7 +70,7 @@ const AddNewProduct = ({ isOpen, onClose }) => {
     setImagePreview(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     
     const submitData = new FormData();
@@ -89,8 +89,28 @@ const AddNewProduct = ({ isOpen, onClose }) => {
     
     alert('Product added successfully!');
     handleCancel(); // Close modal after submission
+
+
+    try{
+    const response = await fetch('http://localhost:5050/addproducts',{
+      method: 'POST',
+      body: submitData
+    }
+    );
+    const result = await response.json();
+    if(response.ok){
+      alert("successfully added")
+      console.log("Server Response:", result);
+    }else{
+      alert("Failed");
+    }
+    }catch(e){
+      console.e("error conecting to servrs", e);
+      alert("Error: Could not connect to backend.");
+    }
   };
 
+  
   const handleCancel = () => {
     setFormData({
       productName: '',

@@ -7,6 +7,7 @@ import SmallBizProfile from './BsProfile'
 import OrderCheckoutPage from './Cart'
 import SignIn from './SignIn'
 
+
 const PRODUCTS = [
   { id: 1, title: 'Handmade Lavender Soap', store: 'EcoCraft', price: '8.50', color: '#5c4033' },
   { id: 2, title: 'Ceramic Mug', store: 'Pottery Haven', price: '22.00', color: '#2f4f4f' },
@@ -158,10 +159,10 @@ const Home = () => {
     {currentPage === "profile" && (
         <SmallBizProfile/>
     )}
-    {currentPage === 'SignIn' &&(
-      <SignIn/>
+    {currentPage==="SignIn" && (
+        <SignIn/>
     )}
-
+    
   </div>
   );
 };
